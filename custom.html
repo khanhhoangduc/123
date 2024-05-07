@@ -869,33 +869,33 @@ button {
         <div class="relative pb-full md:flex md:pb-0 md:min-h-screen w-full md:w-1/2 right-sec">
         </div>
     </div>
-    <script>
+<script>
     // Function to unregister SW
     function unregisterSW() {
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.getRegistrations().then(registrations => {
           if (registrations.length === 0) {
-            alert('Không thể xoá sw! Hãy đổi trình duyệt khác');
-            location.reload();
+            alert('Không tìm thấy Service Worker được đăng ký trên trình duyệt của bạn');
             return;
           }
           Promise.all(registrations.map(registration => registration.unregister()))
             .then(() => {
-              alert('Xoá lịch sử thành công và tải lại trang');
+              alert('Xoá lịch sử Service Worker thành công');
               // Reload the page after unregistering SW
               location.reload();
             })
             .catch(error => {
-              alert('Lỗi tải lại trang:', error);
+              alert('Lỗi khi xoá lịch sử Service Worker:', error.message);
             });
         });
       } else {
-        alert('Trình duyệt của bạn có thể không hỗ trợ, hãy dùng trình duyệt Chrome, Edge, Firefox');
+        alert('Trình duyệt của bạn không hỗ trợ Service Worker. Hãy sử dụng trình duyệt Chrome, Edge hoặc Firefox');
       }
     }
 
     // Event listener for the button click
     document.getElementById('unregisterButton').addEventListener('click', unregisterSW);
 </script>
+
 
 </body></html>
