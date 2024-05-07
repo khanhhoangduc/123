@@ -845,7 +845,7 @@ button {
                 <p class="text-grey-darker text-2xl md:text-3xl mb-7 leading-normal">
                     </p><p class="sub-header"><h1>Vui lòng hoàn tất xác minh bên dưới để tiếp tục xem phim tại: <span id="domainName"></span></h1></p>
                     </p><p class="highlight">Làm sao để xác minh?</p>
-                    <p class="std-text">Bạn vui lòng đợi chút sẽ có một ô vuông ngay bên dưới bạn tích vào đó là xem được anime ⬇</p>
+                    <p class="std-text">Bạn vui lòng đợi chút sẽ có một ô vuông ngay bên dưới bạn tích vào đó là xem được phim nha ⬇</p>
                 <br>
                 <br>
                 </p><p class="highlight">Hãy sử dụng trình duyệt khác nếu không hiện thị ô xác minh!</p>
@@ -853,7 +853,6 @@ button {
 
                 <br>
                 </p><p class="highlight">Nếu bạn bị lỗi xác minh lặp lại hãy ấn "Tải Lại Trang" hoặc dùng trình duyệt khác!</p>
-                <button id="unregisterButton">Tải Lại Trang</button>
                 <br>
                 <p class="highlight">Vui lòng liên hệ với admin nếu không xác minh được <a href="https://t.me/+hPicJ08cKZdjNTM1"><b>tại đây</b></a></p>
                  <div class="sub-footer">
@@ -869,33 +868,5 @@ button {
         <div class="relative pb-full md:flex md:pb-0 md:min-h-screen w-full md:w-1/2 right-sec">
         </div>
     </div>
-<script>
-    // Function to unregister SW
-    function unregisterSW() {
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(registrations => {
-          if (registrations.length === 0) {
-            alert('Không tìm thấy Service Worker được đăng ký trên trình duyệt của bạn');
-            return;
-          }
-          Promise.all(registrations.map(registration => registration.unregister()))
-            .then(() => {
-              alert('Xoá lịch sử Service Worker thành công');
-              // Reload the page after unregistering SW
-              location.reload();
-            })
-            .catch(error => {
-              alert('Lỗi khi xoá lịch sử Service Worker:', error.message);
-            });
-        });
-      } else {
-        alert('Trình duyệt của bạn không hỗ trợ Service Worker. Hãy sử dụng trình duyệt Chrome, Edge hoặc Firefox');
-      }
-    }
-
-    // Event listener for the button click
-    document.getElementById('unregisterButton').addEventListener('click', unregisterSW);
-</script>
-
 
 </body></html>
